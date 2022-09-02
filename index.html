@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100 p-2">
+    <!-- Header Section -->
+    <header class=" m-auto shadow-lg rounded-xl">
+        <div class="navbar bg-base-100 rounded-xl">
+            <div class="flex-1">
+                <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+            </div>
+            <div class="flex-none gap-2">
+                <ul class="menu menu-horizontal p-2">
+                    <li class=" border-b-4 border-indigo-500"><a class="text-primary">News</a></li>
+                    <li><a>Blogs</a></li>
+                </ul>
+                <div class="dropdown dropdown-end">
+                    <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-10 rounded-full">
+                                <img src="https://placeimg.com/80/80/people" />
+                            </div>
+                        </label>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Main Section -->
+    <main class="container m-auto">
+        <!-- catagory section -->
+        <section class="container m-auto">
+            <ul class="container menu menu-horizontal p-2 flex justify-between">
+                <li><a class="text-primary">News</a></li>
+                <li><a>Blogs</a></li>
+                <li><a>Blogs</a></li>
+                <li><a>Blogs</a></li>
+                <li><a>Blogs</a></li>
+                <li><a>Blogs</a></li>
+                <li><a>Blogs</a></li>
+                <li><a>Blogs</a></li>
+            </ul>
+        </section>
+
+        <!-- Number Of catagory -->
+        <div class="container shadow-lg rounded-lg m-auto bg-white">
+            <h1 class="text-2xl p-3 m-3">4 items found for category Entertainment</h1>
+        </div>
+
+        <!-- Trendy -->
+        <section class="flex justify-between align-item my-5">
+            <!-- sorted by -->
+            <div class="flex align-center">
+                <h1 class="text-2xl p-3">Sort by View</h1>
+                <ul class="menu menu-horizontal p-0"></ul>
+                <button class="flex bg-white rounded p-3 " disabled>
+                        Default<svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                            viewBox="0 0 24 24">
+                            <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                        </svg>
+                    </button>
+            </div>
+
+            <!-- Trendy Div -->
+            <div>
+                <button class="btn btn-primary">Today's Pic</button>
+                <button class="btn btn-outline btn-success">Trendy</button>
+            </div>
+        </section>
+
+        <!-- Card -->
+        <section class="my-5">
+            <div class="card card-side bg-base-100 shadow-xl">
+                <figure><img class="m-3 rounded-lg" src="https://placeimg.com/200/280/arch" alt="Movie"></figure>
+                <div class="card-body">
+                    <h2 class="text-3xl">New movie is released!</h2>
+                    <p>Click the button to watch on Jetflix app.</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Watch</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center mt-20 mb-10">
+        <h1>Copyright 2021 News Portal</h1>
+    </footer>
+
+
+    <!-- Script Files -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
