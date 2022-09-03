@@ -10,7 +10,7 @@ const newsURL = async(id) => {
         `https://openapi.programming-hero.com/api/news/category/${id}`
     );
     const data = await res.json();
-    console.log(data.data);
+
     cardData(data.data);
 };
 
@@ -41,78 +41,75 @@ const createCategory = (info) => {
 // Number of news
 const numOfNews = (len) => {
     const numberOfCate = document.getElementById("numberOfCate");
-    console.log(len);
+    numberOfCate.innerText = len.toString();
 
 }
 
 //Card data
-const cardData = (data) => {
+const cardData = (datas) => {
     const cardElement = document.getElementById("cardElement");
+    console.log(datas);
+    cardElement.textContent = "";
 
-    cardElement.innerText = "";
-
-    const div = document.createElement("div");
-    // var newsLen = data.length;
-    // numOfNews(newsLen);
-
-
-    if (data.length > 0) {
-
-        data.forEach((data) => {
+    if (datas.length > 0) {
+        const div = document.createElement("div");
+        datas.forEach((data) => {
             div.innerHTML = `
                 <label onclick="newsDetailsURL('${data._id}')" for="my-modal" class="modal-button">
-                <div class="card grid-cols-12 card-side bg-base-100 shadow-xl my-3">
-                    <figure><img class="rounded-lg h-full w-12/4" src="${data.thumbnail_url}" alt="Movie"></figure>
-                    <div class="card-body  w-9/12">
-                        <h2 class="text-3xl">${data.title}</h2>
-                        <p class="truncate">${data.details}</p>
-                        <div class="card-actions flex justify-between align-center">
-                            
-                            <div class="flex align-center m-auto">
-                                <div class="avatar">
-                                    <div class="w-14 rounded-full">
-                                        <img src="${data.author.img}" />
+                    <div class="card grid-cols-12 card-side bg-base-100 shadow-xl my-3">
+                        <figure><img class="rounded-lg h-full w-12/4" src="${data.thumbnail_url}" alt="Movie"></figure>
+                        <div class="card-body  w-9/12">
+                            <h2 class="text-3xl">${data.title}</h2>
+                            <p class="truncate">${data.details}</p>
+                            <div class="card-actions flex justify-between align-center">
+                                
+                                <div class="flex align-center m-auto">
+                                    <div class="avatar">
+                                        <div class="w-14 rounded-full">
+                                            <img src="${data.author.img}" />
+                                        </div>
                                     </div>
+
+                                    <div class="pl-3 flex flex-col m-auto">
+                                        <h1 class="text-xl">${data.author.name}</h1>
+                                        <p>${data.author.published_date}</p>
+                                    </div>
+
                                 </div>
 
-                                <div class="pl-3 flex flex-col m-auto">
-                                    <h1 class="text-xl">${data.author.name}</h1>
-                                    <p>${data.author.published_date}</p>
+                                
+                                <div class="m-auto">
+                                    <h1 class="text-xl"><i class="fa-solid fa-eye"></i> ${data.total_view}</h1>
                                 </div>
 
-                            </div>
-
                             
-                            <div class="m-auto">
-                                <h1 class="text-xl"><i class="fa-solid fa-eye"></i> ${data.total_view}</h1>
-                            </div>
+                                <div class="m-auto">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
 
-                        
-                            <div class="m-auto">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-
-                            
-                            <div class="m-auto">
-                                <i class="fa-solid fa-right-long text-xl"></i>
+                                
+                                <div class="m-auto">
+                                    <i class="fa-solid fa-right-long text-xl"></i>
+                                </div>
                             </div>
                         </div>
-                </div>
-            </div>
+                    </div>
             </label>
             `;
             cardElement.appendChild(div);
         });
     } else {
         cardElement.innerText = "";
-        div.innerHTML = `<h1 class="text-6xl text-center">There is no news.</h1>`
-        cardElement.appendChild(div);
+        const d = document.createElement("div");
+        d.innerHTML = `<h1 class="text-6xl text-center">There is no news.</h1>`;
+        cardElement.appendChild(d);
     }
-
+    let newsLen = datas.length;
+    numOfNews(newsLen);
 };
 
 //Modal
