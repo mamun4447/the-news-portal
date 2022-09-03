@@ -42,17 +42,18 @@
     <main class="container m-auto">
         <!-- catagory section -->
         <section class="container m-auto">
-            <ul id="categorys" class="container menu menu-horizontal p-2 flex justify-between">
-                <li><a>Home</a></li>
+            <ul id="categorys" class="container sm:flex-wrap menu menu-horizontal p-2 lg:flex justify-between">
+                <!-- <li><a>Home</a></li> -->
             </ul>
         </section>
 
         <!-- Number Of catagory -->
-        <div id="numberOfCate" class="container shadow-lg rounded-lg m-auto bg-white">
+        <div id="numberOfCate" class="container  shadow-lg rounded-lg m-auto bg-white">
+            <h1 class="text-2xl p-2"><span id="numOfCategory">4</span> Post found</h1>
         </div>
 
         <!-- Trendy -->
-        <section class="flex justify-between align-item my-5">
+        <section class="container flex justify-between align-item my-5">
             <!-- sorted by -->
             <div class="flex align-center">
                 <h1 class="text-2xl p-3">Sort by View</h1>
@@ -65,7 +66,7 @@
             </div>
 
             <!-- Trendy Div -->
-            <div>
+            <div class=" flex">
                 <button class="btn btn-primary">Today's Pic</button>
                 <button class="btn btn-outline btn-success">Trendy</button>
             </div>
