@@ -39,12 +39,6 @@ const createCategory = (info) => {
     });
 };
 
-// Number of news
-const numOfNews = (len) => {
-    const numberOfCate = document.getElementById("numberOfCate");
-    numberOfCate.innerText = len;
-};
-
 //Card data
 const cardData = (datas) => {
     const cardElement = document.getElementById("cardElement");
