@@ -11,32 +11,52 @@
 </head>
 
 <body>
-    <main class="container m-auto">
-        <div class="collapse">
+    <header class="text-center">
+        <h class=" text-5xl p-5">Question Answer</h>
+    </header>
+    <main class="container m-auto mt-32">
+        <div class="collapse rounded">
             <input type="checkbox" class="peer" />
             <div class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
                 Difference between let,var & const
             </div>
             <div class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                <p>hello</p>
+                <p><span class="text-xl">var keyword in JavaScript:</span> The var is the oldest keyword to declare a variable in JavaScript.
+                </p>
+
+                <p><span class="text-xl">Scope:</span> Global scoped or function scoped. The scope of the var keyword is the global or function scope. It means variables defined outside the function can be accessed globally, and variables defined inside
+                    a particular function can be accessed within the function.</p><br>
+                <p><span class="text-xl">let keyword in JavaScript:</span> The let keyword is an improved version of the var keyword.
+                </p>
+                <p><span class="text-xl">Scope:</span> The scope of a let variable is only block scoped. It can’t be accessible outside the particular block ({block}). Let’s see the below example.</p><br>
+                <p><span>let keyword in JavaScript:</span> The let keyword is an improved version of the var keyword.
+                </p>
+                <p><span>Scope:</span> block scoped: The scope of a let variable is only block scoped. It can’t be accessible outside the particular block ({block}). Let’s see the below example.</p>
             </div>
         </div>
-        <div class="collapse">
+        <div class="collapse rounded">
             <input type="checkbox" class="peer" />
             <div class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
                 Difference between map,filter & forEach
             </div>
             <div class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                <p>hello</p>
+                <p><span class="text-xl">1. Foreach</span> The easy one right ? we all know why this method is used for and even you don’t know about this method the name pretty much explains everything. Foreach takes a callback function and run that callback
+                    function on each element of array one by one.</p>
+                <p> <span class="text-xl">2. Filter</span> Whenever you have to filter an array Javascript inbuilt method to filter your array is the right choice to use. Filter let you provide a callback for every element and returns a filtered array. The
+                    main difference between forEach and filter is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value.</p>
+                <p> <span class="text-xl">3. Map</span> One of my favourite and most used array method of all time. As a ReactJS developer I use map a lot inside my application UI. Map like filter & foreach takes a callback and run it against every element
+                    on the array but whats makes it unique is it generate a new array based on your existing array.
+                </p>
             </div>
         </div>
-        <div class="collapse">
+        <div class="collapse rounded">
             <input type="checkbox" class="peer" />
             <div class="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
                 Why use template literals?
             </div>
             <div class="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                <p>hello</p>
+                <p>Template literals provide an easy way to interpolate variables and expressions into strings. The method is called string interpolation.
+                </p>
             </div>
         </div>
     </main>
