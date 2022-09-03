@@ -6,6 +6,7 @@ const fetchUrl = () => {
 
 //Fetch news URL
 const newsURL = async(id) => {
+
     const res = await fetch(
         `https://openapi.programming-hero.com/api/news/category/${id}`
     );
@@ -42,8 +43,7 @@ const createCategory = (info) => {
 const numOfNews = (len) => {
     const numberOfCate = document.getElementById("numberOfCate");
     numberOfCate.innerText = len;
-
-}
+};
 
 //Card data
 const cardData = (datas) => {
@@ -52,12 +52,16 @@ const cardData = (datas) => {
     cardElement.textContent = "";
 
     if (datas.length > 0) {
-        const div = document.createElement("div");
+
         datas.forEach((data) => {
+            const div = document.createElement("div");
             div.innerHTML = `
                 <label onclick="newsDetailsURL('${data._id}')" for="my-modal" class="modal-button">
-                    <div class="card grid-cols-12 card-side bg-base-100 shadow-xl my-3">
+
+                    <div class="card cursor-pointer card-side bg-base-100 shadow-xl my-3">
+
                         <figure><img class="rounded-lg h-full w-12/4" src="${data.thumbnail_url}" alt="Movie"></figure>
+
                         <div class="card-body  w-9/12">
                             <h2 class="text-3xl">${data.title}</h2>
                             <p class="truncate">${data.details}</p>
@@ -108,19 +112,19 @@ const cardData = (datas) => {
         d.innerHTML = `<h1 class="text-6xl text-center">There is no news.</h1>`;
         cardElement.appendChild(d);
     }
-    let newsLen = datas.length;
-    numOfNews(newsLen);
+    const numberOfCate = document.getElementById("numberOfCate");
+    numberOfCate.innerText = datas.length;
 };
 
 //Modal
 const detailsModal = (data) => {
     const modalItems = document.getElementById("modalItems");
 
-    console.log(data)
+    console.log(data);
 
     const div = document.createElement("div");
 
-    // const 
+    // const
     data.forEach((data) => {
         div.innerHTML = `
             <input type="checkbox" id="my-modal" class="modal-toggle" />
@@ -142,7 +146,6 @@ const detailsModal = (data) => {
         modalItems.appendChild(div);
     });
     // modalItems.textContent = "";
-
 };
 
-fetchUrl('');
+fetchUrl("");
