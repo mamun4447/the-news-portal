@@ -41,7 +41,7 @@ const createCategory = (info) => {
 // Number of news
 const numOfNews = (len) => {
     const numberOfCate = document.getElementById("numberOfCate");
-    numberOfCate.innerText = len.toString();
+    numberOfCate.innerText = len;
 
 }
 
