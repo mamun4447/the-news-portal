@@ -8,9 +8,12 @@
     <title>News Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontowsome -->
+    <script src="https://kit.fontawesome.com/44084c3fd8.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-slate-100 p-2">
+
     <!-- Header Section -->
     <header class=" m-auto shadow-lg rounded-xl">
         <div class="navbar bg-base-100 rounded-xl">
@@ -45,8 +48,8 @@
         </section>
 
         <!-- Number Of catagory -->
-        <div class="container shadow-lg rounded-lg m-auto bg-white">
-            <h1 class="text-2xl p-3 m-3">4 items found for category Entertainment</h1>
+        <div id="numberOfCate" class="container shadow-lg rounded-lg m-auto bg-white">
+
         </div>
 
         <!-- Trendy -->
@@ -71,18 +74,25 @@
         </section>
 
         <!-- Card -->
-        <section class="my-5">
-            <div class="card card-side bg-base-100 shadow-xl">
-                <figure><img class="m-3 rounded-lg" src="https://placeimg.com/200/280/arch" alt="Movie"></figure>
-                <div class="card-body">
-                    <h2 class="text-3xl">New movie is released!</h2>
-                    <p>Click the button to watch on Jetflix app.</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Watch</button>
+        <section id="cardElement" class="my-5">
+
+        </section>
+
+        <!-- Modal -->
+        <section id="modalItems">
+            <input type="checkbox" id="my-modal" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box">
+                    <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!
+                    </p>
+                    <div class="modal-action">
+                        <label for="my-modal" class="btn">Yay!</label>
                     </div>
                 </div>
             </div>
         </section>
+
 
     </main>
 
