@@ -20,7 +20,7 @@ const newsDetailsURL = async(id) => {
         `https://openapi.programming-hero.com/api/news/${id}`
     );
     const data = await res.json();
-    console.log(data.data);
+    // console.log(data.data);
     detailsModal(data.data);
 };
 
@@ -42,10 +42,12 @@ const createCategory = (info) => {
 const cardData = (data) => {
     const cardElement = document.getElementById("cardElement");
     const numberOfCate = document.getElementById("numberOfCate");
+    cardElement.innerText = "";
     data.forEach((data) => {
         const div = document.createElement("div");
         div.innerHTML = `
-        <div onclick="newsDetailsURL('${data._id}')" for="my-modal" class="card grid-cols-12 card-side bg-base-100 shadow-xl my-3">
+        <label onclick="newsDetailsURL('${data._id}')" for="my-modal" class="modal-button">
+        <div class="card grid-cols-12 card-side bg-base-100 shadow-xl my-3">
                 <figure><img class="rounded-lg grid-cols-3" src="${data.thumbnail_url}" alt="Movie"></figure>
                 <div class="card-body grid-cols-9">
                     <h2 class="text-3xl">${data.title}</h2>
@@ -87,6 +89,7 @@ const cardData = (data) => {
                     </div>
                 </div>
             </div>
+            </label>
         `;
         cardElement.appendChild(div);
     });
@@ -98,9 +101,24 @@ const cardData = (data) => {
 //Modal
 const detailsModal = (data) => {
     const modalItems = document.getElementById("modalItems");
-    const div = document.createElement("div");
-    div.innerHTML = ``;
-    modalItems.appendChild(div);
+    modalItems.innerHTML = '';
+
+    data.forEach((data) => {
+        const div = document.createElement("div");
+
+        div.innerHTML = `
+            <input type="checkbox" id="my-modal" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box">
+                    <h3 class="font-bold text-lg">${data.author.name}</h3>
+                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <div class="modal-action">
+                        <label for="my-modal" class="btn">Yay!</label>
+                    </div>
+                </div>
+            </div>`;
+        modalItems.appendChild(div);
+    });
 };
 
-fetchUrl();
+fetchUrl('');
