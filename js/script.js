@@ -41,13 +41,16 @@ const createCategory = (info) => {
 //Card data
 const cardData = (data) => {
     const cardElement = document.getElementById("cardElement");
-    const numberOfCate = document.getElementById("numberOfCate");
+    // const numberOfCate = document.getElementById("numberOfCate");
+
     cardElement.innerText = "";
 
     const div = document.createElement("div");
 
 
     if (data.length > 0) {
+        cardElement.innerText = "";
+
         data.forEach((data) => {
             div.innerHTML = `
                 <label onclick="newsDetailsURL('${data._id}')" for="my-modal" class="modal-button">
@@ -98,9 +101,10 @@ const cardData = (data) => {
             cardElement.appendChild(div);
         });
     } else {
-        div.innerHTML = `<h1 class="text-6xl text-center">There is no news.</h1>`
-        modalItems.appendChild(div);
         cardElement.innerText = "";
+        div.innerHTML = `<h1 class="text-6xl text-center">There is no news.</h1>`
+        cardElement.appendChild(div);
+        // cardElement.innerText = "";
     }
     // const items = document.createElement("div");
     // items.innerHTML = `<h1 class="text-2xl p-3 m-3">${cardElement.legnth} items found for category Entertainment</h1>`;
@@ -115,13 +119,19 @@ const detailsModal = (data) => {
 
     const div = document.createElement("div");
 
+    // const 
     data.forEach((data) => {
         div.innerHTML = `
             <input type="checkbox" id="my-modal" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box">
-                    <img src="${data.author.img}"/>
-                    <h3 class="font-bold text-lg">${data.author.name}</h3>
+                    <img src="${
+                      data.author.img ? data.author.img : "No autor Image"
+                    }"/>
+                    <h3 class="font-bold text-lg">${
+                      data.author.name ? data.author.name : "No autor Name"
+                    }</h3>
+                    <p>Publish Date: ${data.author.published_date}</p>
                     <p class="py-4">Title: ${data.title}</p>
                     <div class="modal-action">
                         <label for="my-modal" class="btn">Close</label>
@@ -130,7 +140,7 @@ const detailsModal = (data) => {
             </div>`;
         modalItems.appendChild(div);
     });
-    modalItems.textContent = "";
+    // modalItems.textContent = "";
 
 };
 
