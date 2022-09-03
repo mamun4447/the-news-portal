@@ -6,7 +6,7 @@ const fetchUrl = () => {
 
 //Fetch news URL
 const newsURL = async(id) => {
-
+    console.log(id)
     const res = await fetch(
         `https://openapi.programming-hero.com/api/news/category/${id}`
     );
@@ -28,7 +28,7 @@ const newsDetailsURL = async(id) => {
 // Category section
 const createCategory = (info) => {
     const categorys = document.getElementById("categorys");
-
+    // console.log(data.category_id);
     info.forEach((data) => {
         const li = document.createElement("li");
         li.classList.add("category");
@@ -44,6 +44,7 @@ const cardData = (datas) => {
     const cardElement = document.getElementById("cardElement");
     console.log(datas);
     cardElement.textContent = "";
+    const forSort = []
 
     if (datas.length > 0) {
 
@@ -99,7 +100,9 @@ const cardData = (datas) => {
             </label>
             `;
             cardElement.appendChild(div);
+            forSort.push(data.total_view);
         });
+
     } else {
         cardElement.innerText = "";
         const d = document.createElement("div");
