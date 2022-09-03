@@ -43,11 +43,15 @@ const cardData = (data) => {
     const cardElement = document.getElementById("cardElement");
     const numberOfCate = document.getElementById("numberOfCate");
     cardElement.innerText = "";
-    data.forEach((data) => {
-        const div = document.createElement("div");
-        div.innerHTML = `
-        <label onclick="newsDetailsURL('${data._id}')" for="my-modal" class="modal-button">
-        <div class="card grid-cols-12 card-side bg-base-100 shadow-xl my-3">
+
+    const div = document.createElement("div");
+
+
+    if (data.length > 0) {
+        data.forEach((data) => {
+            div.innerHTML = `
+                <label onclick="newsDetailsURL('${data._id}')" for="my-modal" class="modal-button">
+                <div class="card grid-cols-12 card-side bg-base-100 shadow-xl my-3">
                 <figure><img class="rounded-lg grid-cols-3" src="${data.thumbnail_url}" alt="Movie"></figure>
                 <div class="card-body grid-cols-9">
                     <h2 class="text-3xl">${data.title}</h2>
@@ -91,8 +95,13 @@ const cardData = (data) => {
             </div>
             </label>
         `;
-        cardElement.appendChild(div);
-    });
+            cardElement.appendChild(div);
+        });
+    } else {
+        div.innerHTML = `<h1 class="text-6xl text-center">There is no news.</h1>`
+        modalItems.appendChild(div);
+        cardElement.innerText = "";
+    }
     // const items = document.createElement("div");
     // items.innerHTML = `<h1 class="text-2xl p-3 m-3">${cardElement.legnth} items found for category Entertainment</h1>`;
     // numberOfCate.appendChild(items);
@@ -101,24 +110,28 @@ const cardData = (data) => {
 //Modal
 const detailsModal = (data) => {
     const modalItems = document.getElementById("modalItems");
-    modalItems.innerHTML = '';
+
+    console.log(data)
+
+    const div = document.createElement("div");
 
     data.forEach((data) => {
-        const div = document.createElement("div");
-
         div.innerHTML = `
             <input type="checkbox" id="my-modal" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box">
+                    <img src="${data.author.img}"/>
                     <h3 class="font-bold text-lg">${data.author.name}</h3>
-                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <p class="py-4">Title: ${data.title}</p>
                     <div class="modal-action">
-                        <label for="my-modal" class="btn">Yay!</label>
+                        <label for="my-modal" class="btn">Close</label>
                     </div>
                 </div>
             </div>`;
         modalItems.appendChild(div);
     });
+    modalItems.textContent = "";
+
 };
 
 fetchUrl('');
