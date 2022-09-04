@@ -53,13 +53,13 @@ const cardData = (datas) => {
             div.innerHTML = `
                 <label onclick="newsDetailsURL('${data._id}')" for="my-modal" class="modal-button">
 
-                    <div class="card cursor-pointer card-side bg-base-100 shadow-xl my-3">
+                    <div class="card cursor-pointer lg:card-side bg-base-100 shadow-xl my-3">
 
-                        <figure><img class="rounded-lg h-full w-12/4" src="${data.thumbnail_url}" alt="Movie"></figure>
+                        <figure><img class="rounded-lg h-full w-full  lg:w-12/4" src="${data.thumbnail_url}" alt="Movie"></figure>
 
-                        <div class="card-body  w-9/12">
-                            <h2 class="text-3xl">${data.title}</h2>
-                            <p class="truncate">${data.details}</p>
+                        <div class="card-body  lg:w-9/12">
+                            <h2 class="lg:text-3xl text-2xl">${data.title}</h2>
+                            <p class="truncate sm:text-xl">${data.details}</p>
                             <div class="card-actions flex justify-between align-center">
                                 
                                 <div class="flex align-center m-auto">
