@@ -42,7 +42,7 @@ const createCategory = (info) => {
 //Card data
 const cardData = (datas) => {
     const cardElement = document.getElementById("cardElement");
-    console.log(datas);
+    // console.log(datas);
     cardElement.textContent = "";
     const forSort = []
 
@@ -109,15 +109,15 @@ const cardData = (datas) => {
         d.innerHTML = `<h1 class="text-6xl text-center">There is no news.</h1>`;
         cardElement.appendChild(d);
     }
-    const numberOfCate = document.getElementById("numberOfCate");
-    numberOfCate.innerText = datas.length;
+    const numOfCategory = document.getElementById("numOfCategory");
+    numOfCategory.innerText = datas.length;
 };
 
 //Modal
 const detailsModal = (data) => {
     const modalItems = document.getElementById("modalItems");
 
-    console.log(data);
+    // console.log(data);
 
     const div = document.createElement("div");
 
@@ -144,5 +144,5 @@ const detailsModal = (data) => {
     });
     // modalItems.textContent = "";
 };
-
-fetchUrl("");
+newsURL('08');
+fetchUrl();
