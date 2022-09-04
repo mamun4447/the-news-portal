@@ -118,11 +118,11 @@ const detailsModal = (data) => {
     const modalItems = document.getElementById("modalItems");
 
     // console.log(data);
-
-    const div = document.createElement("div");
+    modalItems.textContent = "";
 
     // const
     data.forEach((data) => {
+        const div = document.createElement("div");
         div.innerHTML = `
             <input type="checkbox" id="my-modal" class="modal-toggle" />
             <div class="modal">
